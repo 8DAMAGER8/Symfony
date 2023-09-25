@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\LessThan;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -34,6 +36,8 @@ class Product
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @NotBlank
+     * @LessThan(100)
      */
     private $price;
 
@@ -49,6 +53,7 @@ class Product
 
     public function getId(): ?int
     {
+//        NotBlank::class;
         return $this->id;
     }
 
